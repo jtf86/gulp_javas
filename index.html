@@ -3,11 +3,44 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Trade+Winds' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/hockey-interface.js"></script>
+    <script type="text/javascript" src="js/hockey.js"></script>
+
     <title>John's Goofy Hockey Website</title>
   </head>
   <body>
+    <div class="container">
+      <div class="jumbotron title">
+        <h3>Welcome to My Hockey Website</h3>
+      </div>
+      <div class="col-md-8 freeze">
+        <h5>Players</h5>
+        <h4>
+          Here are all of our players
+        </h4>
+        <ul id="players-list">
+          <li>Wayne Gretzky - 99 OVR</li>
+        </ul>
+      </div>
+      <div class="col-md-4 thaw">
+        <form id="player-submit" action="index.html" method="post">
+          <h6>
+            Add a player:
+          </h6>
+          <label for="new-player">Name</label>
+          <input id="player-name" type="text" name="new-player" value="">
+          <br>
+          <label for="rating">Rating</label>
+          <input id="player-rating" type="number" name="rating" maximum="99">
+          <br>
+          <button type="submit" name="plrsubmit">Add Player</button>
+        </form>
 
+      </div>
+    </div>
   </body>
 </html>

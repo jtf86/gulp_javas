@@ -1,0 +1,15 @@
+{
+  "name": "hockey",
+  "version": "1.0.0",
+  "description": "An app for building a hockey team roster",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "gulp": "^3.9.1"
+  }
+}

@@ -1,0 +1,22 @@
+body {
+  font-family: monospace;
+}
+
+.title {
+  text-align: center;
+  font-family: 'Trade Winds', cursive;
+}
+
+.freeze {
+  background-color: #f2fdff;
+  color: #0a2342;
+}
+
+.thaw {
+  background-color: #F3FAE1;
+  color: #4281A4;
+}
+
+#players-list {
+  color: #4281A4;
+}
