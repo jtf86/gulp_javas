@@ -1,22 +1,62 @@
+:root{
+    --text-color: #E1CA96;
+    --other-color: #FAF3DD;
+    --main-color:#9EA93F;
+    --secondary-color: #60712F;
+    --accent-color:#315C2B;
+    --success-color: #274029;
+    --failure-color: #181F1C;
+}
+
 body {
   font-family: monospace;
+  background-color: var(--main-color);
 }
 
 .title {
+  background-color: var(--text-color);
   text-align: center;
   font-family: 'Trade Winds', cursive;
 }
 
+input {
+  background-color: var(--failure-color);
+}
+
+select {
+  background-color: var(--failure-color);
+}
+
+button {
+  background-color: var(--failure-color);
+}
+
+
 .freeze {
-  background-color: #f2fdff;
-  color: #0a2342;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
 }
 
 .thaw {
-  background-color: #F3FAE1;
-  color: #4281A4;
+  background-color: var(--accent-color);
+  color: var(--other-color);
+  padding-bottom: 15px;
 }
 
+.roster {
+  text-align: center;
+}
+
+.roster ul {
+  list-style: none;
+}
+
+.roster ul li {
+  color: var(--other-color);
+  font-size: 60%;
+}
+
+
 #players-list {
-  color: #4281A4;
+  color: var(--text-color);
 }

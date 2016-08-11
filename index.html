@@ -16,15 +16,46 @@
       <div class="jumbotron title">
         <h3>Welcome to My Hockey Website</h3>
       </div>
+
       <div class="col-md-8 freeze">
         <h5>Players</h5>
         <h4>
           Here are all of our players
+          <div class="roster">
+            <div class="col-md-4">
+              <h4>LW</h4>
+              <ul id="lw">
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h4>C</h4>
+              <ul id="c">
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h4>RW</h4>
+              <ul id="rw">
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h4>LD</h4>
+              <ul id="ld">
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h4>RD</h4>
+              <ul id="rd">
+              </ul>
+            </div>
+            <div class="col-md-12">
+              <h4>G</h4>
+              <ul id="g">
+              </ul>
+            </div>
+          </div>
         </h4>
-        <ul id="players-list">
-          <li>Wayne Gretzky - 99 OVR</li>
-        </ul>
       </div>
+
       <div class="col-md-4 thaw" id="target">
         <form id="player-submit" action="index.html" method="post">
           <h6>
@@ -32,6 +63,16 @@
           </h6>
           <label for="new-player">Name</label>
           <input id="player-name" type="text" name="new-player" value="">
+          <br>
+          <label for="player-pos">Position</label>
+          <select id="player-position" name="player-pos">
+            <option value="lw">Left Wing</option>
+            <option value="rw">Right Wing</option>
+            <option value="c">Center</option>
+            <option value="ld">Left Defenseman</option>
+            <option value="rd">Right Defenseman</option>
+            <option value="g">Goalie</option>
+          </select>
           <br>
           <label for="rating">Rating</label>
           <input id="player-rating" type="number" name="rating" maximum="99">
