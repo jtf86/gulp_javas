@@ -1,0 +1,20 @@
+{
+  "name": "hockey",
+  "description": "An app for building a hockey team roster",
+  "main": "index.js",
+  "authors": [
+    "John <john@epicodus.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/jtf86/gulp_javas",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
+}

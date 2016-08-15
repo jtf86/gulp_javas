@@ -1,8 +1,8 @@
 $(document).ready(function() {
   $(".title").click(function(){
     alert("WHY DID YOU CLICK THAT?!!?");
-  })
-})
+  });
+});
 
 var Team = require('./../js/hockey.js').hockeyModule;
 
@@ -23,5 +23,5 @@ $(document).ready(function() {
     var playerRating = $("#player-rating").val();
     $("#" + playerPosition).append("<li>" + playerName + " - " + playerRating + " OVR");
     // myTeam.createdPlayer(playerName, playerRating);
-  })
-})
+  });
+});

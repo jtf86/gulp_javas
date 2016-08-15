@@ -19,7 +19,7 @@ gulp.task('concatInterface', function() {
 // RUNS SECOND TO 'BROWSERIFY' THINGS
 gulp.task('jsBrowserify', ['concatInterface'], function() {
   return browserify({ entries: ['./tmp/allConcat.js'] })
-    .bundle()
+    // .bundle()
     .pipe(source('app.js'))
     .pipe(gulp.dest('./build/js'));
 });
