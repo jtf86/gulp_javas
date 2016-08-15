@@ -45,4 +45,8 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function(){
+  $('#time').text(moment());
+});
+
 },{"./../js/hockey.js":1}]},{},[2]);

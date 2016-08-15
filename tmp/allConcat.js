@@ -25,3 +25,7 @@ $(document).ready(function() {
     // myTeam.createdPlayer(playerName, playerRating);
   });
 });
+
+$(document).ready(function(){
+  $('#time').text(moment());
+});

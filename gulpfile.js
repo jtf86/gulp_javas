@@ -12,7 +12,7 @@ var buildProduction = utilities.env.production;
 
 // RUNS FIRST TO BLEND ALL FILES
 gulp.task('concatInterface', function() {
-  return gulp.src(['./js/freakout-interface.js', './js/hockey-interface.js'])
+  return gulp.src(['./js/freakout-interface.js', './js/hockey-interface.js', './js/time-interface.js'])
   .pipe(concat('allConcat.js'))
   .pipe(gulp.dest('./tmp'));
 });
@@ -28,12 +28,23 @@ gulp.task('jsBrowserify', ['concatInterface'], function() {
     .pipe(gulp.dest('./build/js'));
 });
 
-// BOWER INTEGRATION METHOD
+// RUN BOWER INTEGRATION TASKS
+gulp.task('bower', ['bowerJS', 'bowerCSS']);
+
+// BOWER JS INTEGRATION METHOD
 gulp.task('bowerJS', function () {
   return gulp.src(lib.ext('js').files)
     .pipe(concat('vendor.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./build/js'));
+});
+
+
+// BOWER CSS INTEGRATION METHOD
+gulp.task('bowerCSS', function () {
+  return gulp.src(lib.ext('css').files)
+    .pipe(concat('vendor.css'))
+    .pipe(gulp.dest('./build/css'));
 });
 
 // MINIFYS THE JS INTO AN UGLY LITTLE OPTIMIZED FILE
