@@ -5,6 +5,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var utilities = require('gulp-util');
 var del = require('del');
+var jshint = require('gulp-jshint');
 
 var buildProduction = utilities.env.production;
 
@@ -35,6 +36,7 @@ gulp.task("clean", function(){
   return del(['build', 'tmp']);
 });
 
+
 // CHOOSES BETWEEN DEV AND PRODUCITON BUILDS
 gulp.task("build", ['clean'], function(){
   if (buildProduction) {
@@ -42,4 +44,12 @@ gulp.task("build", ['clean'], function(){
   } else {
     gulp.start('jsBrowserify');
   }
+});
+
+
+// LINTER
+gulp.task('jshint', function(){
+  return gulp.src(['js/*.js'])
+  .pipe(jshint())
+  .pipe(jshint.reporter('default'));
 });

@@ -11,6 +11,6 @@ Team.prototype.createdPlayer = function(name, rating)
   } else {
     alert("You've added a superstar named " + name +". Their overall rating is an impressive " + rating + ".");
   }
-}
+};
 
 exports.hockeyModule = Team;

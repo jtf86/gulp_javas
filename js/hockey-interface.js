@@ -17,5 +17,5 @@ $(document).ready(function() {
     var playerRating = $("#player-rating").val();
     $("#" + playerPosition).append("<li>" + playerName + " - " + playerRating + " OVR");
     // myTeam.createdPlayer(playerName, playerRating);
-  })
-})
+  });
+});
