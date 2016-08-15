@@ -12,7 +12,7 @@ Team.prototype.createdPlayer = function(name, rating)
   } else {
     alert("You've added a superstar named " + name +". Their overall rating is an impressive " + rating + ".");
   }
-}
+};
 
 exports.hockeyModule = Team;
 
@@ -20,8 +20,8 @@ exports.hockeyModule = Team;
 $(document).ready(function() {
   $(".title").click(function(){
     alert("WHY DID YOU CLICK THAT?!!?");
-  })
-})
+  });
+});
 
 var Team = require('./../js/hockey.js').hockeyModule;
 
@@ -42,7 +42,7 @@ $(document).ready(function() {
     var playerRating = $("#player-rating").val();
     $("#" + playerPosition).append("<li>" + playerName + " - " + playerRating + " OVR");
     // myTeam.createdPlayer(playerName, playerRating);
-  })
-})
+  });
+});
 
 },{"./../js/hockey.js":1}]},{},[2]);
