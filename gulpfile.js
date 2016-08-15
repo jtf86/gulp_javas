@@ -6,6 +6,7 @@ var uglify = require('gulp-uglify');
 var utilities = require('gulp-util');
 var del = require('del');
 var jshint = require('gulp-jshint');
+var lib = require('bower-files')();
 
 var buildProduction = utilities.env.production;
 
@@ -16,11 +17,22 @@ gulp.task('concatInterface', function() {
   .pipe(gulp.dest('./tmp'));
 });
 
+// ADD THIS TO concatInterface FOR SUCCESS
+// , './js/time-interface.js'
+
 // RUNS SECOND TO 'BROWSERIFY' THINGS
 gulp.task('jsBrowserify', ['concatInterface'], function() {
   return browserify({ entries: ['./tmp/allConcat.js'] })
     .bundle()
     .pipe(source('app.js'))
+    .pipe(gulp.dest('./build/js'));
+});
+
+// BOWER INTEGRATION METHOD
+gulp.task('bowerJS', function () {
+  return gulp.src(lib.ext('js').files)
+    .pipe(concat('vendor.min.js'))
+    .pipe(uglify())
     .pipe(gulp.dest('./build/js'));
 });
 
