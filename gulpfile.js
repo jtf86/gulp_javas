@@ -2,7 +2,20 @@ var gulp = require('gulp');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var utilities = require('gulp-util');
+var del = require('del');
 
+var buildProduction = utilities.env.production;
+
+// RUNS FIRST TO BLEND ALL FILES
+gulp.task('concatInterface', function() {
+  return gulp.src(['./js/freakout-interface.js', './js/hockey-interface.js'])
+  .pipe(concat('allConcat.js'))
+  .pipe(gulp.dest('./tmp'));
+});
+
+// RUNS SECOND TO 'BROWSERIFY' THINGS
 gulp.task('jsBrowserify', ['concatInterface'], function() {
   return browserify({ entries: ['./tmp/allConcat.js'] })
     .bundle()
@@ -10,8 +23,23 @@ gulp.task('jsBrowserify', ['concatInterface'], function() {
     .pipe(gulp.dest('./build/js'));
 });
 
-gulp.task('concatInterface', function() {
-  return gulp.src(['./js/freakout-interface.js', './js/hockey-interface.js'])
-    .pipe(concat('allConcat.js'))
-    .pipe(gulp.dest('./tmp'));
+// MINIFYS THE JS INTO AN UGLY LITTLE OPTIMIZED FILE
+gulp.task("minifyScripts", ["jsBrowserify"], function(){
+  return gulp.src("./build/js/app.js")
+    .pipe(uglify())
+    .pipe(gulp.dest("./build/js"));
+});
+
+// DELETES BUILD FILES
+gulp.task("clean", function(){
+  return del(['build', 'tmp']);
+});
+
+// CHOOSES BETWEEN DEV AND PRODUCITON BUILDS
+gulp.task("build", ['clean'], function(){
+  if (buildProduction) {
+    gulp.start('minifyScripts');
+  } else {
+    gulp.start('jsBrowserify');
+  }
 });
