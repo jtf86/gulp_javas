@@ -6,7 +6,17 @@ var uglify = require('gulp-uglify');
 var utilities = require('gulp-util');
 var del = require('del');
 var jshint = require('gulp-jshint');
-var lib = require('bower-files')();
+var lib = require('bower-files')({
+  "overrides":{
+    "bootstrap" : {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
+});
 
 var buildProduction = utilities.env.production;
 
@@ -54,13 +64,13 @@ gulp.task("minifyScripts", ["jsBrowserify"], function(){
 });
 
 // DELETES BUILD FILES
-gulp.task("clean", function(){
-  return del(['build', 'tmp']);
-});
+// gulp.task("clean", function(){
+//   return del(['build', 'tmp']);
+// });
 
 
 // CHOOSES BETWEEN DEV AND PRODUCITON BUILDS
-gulp.task("build", ['clean'], function(){
+gulp.task("build", function(){
   if (buildProduction) {
     gulp.start('minifyScripts');
   } else {
