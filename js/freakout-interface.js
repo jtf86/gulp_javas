@@ -1,5 +1,5 @@
 $(document).ready(function() {
   $(".title").click(function(){
-    alert("WHY DID YOU CLICK THAT?!!?");
+    alert("WHY DID YOU CLICK THAT?");
   });
 });

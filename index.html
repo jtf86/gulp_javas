@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="build/css/vendor.css">
-    <link href='css/master.css' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='css/master.css'>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/moment/min/moment.min.js"></script>
@@ -84,6 +84,15 @@
               <h3 id="time"></h3>
             </div>
         </form>
+      </div>
+      <div class="container thaw text-center">
+        <h1>Get Weather Conditions From Any City!</h1>
+        <form class="weatherForm" action="index.html" method="post">
+          <label for="location">Enter a location:</label>
+          <input id="location" type="text">
+          <button class="btn-success" id="weatherLocation">Get Current Temperature!</button>
+        </form>
+        <div class="showWeather"></div>
       </div>
     </div>
   </body>

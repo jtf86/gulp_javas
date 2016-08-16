@@ -6,6 +6,7 @@ var uglify = require('gulp-uglify');
 var utilities = require('gulp-util');
 var del = require('del');
 var jshint = require('gulp-jshint');
+var browserSync = require('browser-sync').create();
 var lib = require('bower-files')({
   "overrides":{
     "bootstrap" : {
@@ -38,6 +39,20 @@ gulp.task('jsBrowserify', ['concatInterface'], function() {
     .pipe(gulp.dest('./build/js'));
 });
 
+// LAUNCH SERVER
+gulp.task('serve', function() {
+  browserSync.init({
+    server: {
+      baseDir: "./",
+      index: "index.html"
+    }
+  });
+
+  gulp.watch(['js/*.js'], ['jsBuild']);
+  gulp.watch(['bower.json'], ['bowerBuild']);
+  gulp.watch(['*.html'], ['htmlBuild']);
+});
+
 // RUN BOWER INTEGRATION TASKS
 gulp.task('bower', ['bowerJS', 'bowerCSS']);
 
@@ -64,13 +79,15 @@ gulp.task("minifyScripts", ["jsBrowserify"], function(){
 });
 
 // DELETES BUILD FILES
-gulp.task("clean", function(){
-  return del(['build', 'tmp']);
-});
+// gulp.task("clean", function(){
+//   return del(['build', 'tmp']);
+// });
 
 
 // CHOOSES BETWEEN DEV AND PRODUCITON BUILDS
-gulp.task("build", ["clean"], function(){
+// gulp.task("build", ["clean"], function(){
+gulp.task("build", function(){
+
   if (buildProduction) {
     gulp.start('minifyScripts');
   } else {
@@ -79,6 +96,20 @@ gulp.task("build", ["clean"], function(){
   gulp.start('bower');
 });
 
+//REBUILD JS FILES FOR SERVER
+gulp.task('jsBuild', ['jsBrowserify', 'jshint'], function(){
+  browserSync.reload();
+});
+
+// REBUILD BOWER FILES FOR SERVER
+gulp.task('bowerBuild', ['bower'], function(){
+  browserSync.reload();
+});
+
+// WATCH FOR CHANGES IN HTML AND REBUILD
+gulp.task('htmlBuild', function() {
+  browserSync.reload();
+});
 
 // LINTER
 gulp.task('jshint', function(){
