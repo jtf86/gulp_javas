@@ -64,13 +64,13 @@ gulp.task("minifyScripts", ["jsBrowserify"], function(){
 });
 
 // DELETES BUILD FILES
-// gulp.task("clean", function(){
-//   return del(['build', 'tmp']);
-// });
+gulp.task("clean", function(){
+  return del(['build', 'tmp']);
+});
 
 
 // CHOOSES BETWEEN DEV AND PRODUCITON BUILDS
-gulp.task("build", function(){
+gulp.task("build", ["clean"], function(){
   if (buildProduction) {
     gulp.start('minifyScripts');
   } else {
