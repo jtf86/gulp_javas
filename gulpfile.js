@@ -39,7 +39,6 @@ gulp.task('bowerJS', function () {
     .pipe(gulp.dest('./build/js'));
 });
 
-
 // BOWER CSS INTEGRATION METHOD
 gulp.task('bowerCSS', function () {
   return gulp.src(lib.ext('css').files)
@@ -67,6 +66,7 @@ gulp.task("build", ['clean'], function(){
   } else {
     gulp.start('jsBrowserify');
   }
+  gulp.start('bower');
 });
 
 
