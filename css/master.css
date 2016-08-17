@@ -25,7 +25,7 @@ body {
 .title {
   background-color: var(--text-color);
   text-align: center;
-  font-family: 'Trade Winds', cursive;
+  font-family: 'Trade Winds';
 }
 
 input {
