@@ -1,7 +1,8 @@
-$gray : #d3d3d3;
+$green : #274029;
+$beige : #E1CA96;
 
 .box {
-  background: $gray;
+  background: $green;
   border: 3px solid black;
   padding: 40px 80px;
   .button {
@@ -13,8 +14,18 @@ $gray : #d3d3d3;
 }
 
 .jumbotron {
+  color: $beige;
   font-size: 12px;
+  background-image: linear-gradient( 100deg, black, grey 20%, $green );
+  border-style: solid;
+  border-width: 5px;
+  border-color: $green;
   h3 {
     font-size: 40px;
+  }
+  h5 {
+    font-family: fantasy;
+    font-size: 22px;
+    color: $green;
   }
 }

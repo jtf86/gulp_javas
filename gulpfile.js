@@ -97,6 +97,7 @@ gulp.task("build", function(){
     gulp.start('jsBrowserify');
   }
   gulp.start('bower');
+  gulp.start('cssBuild');
 });
 
 //REBUILD JS FILES FOR SERVER
